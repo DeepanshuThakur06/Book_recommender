@@ -1,0 +1,79 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8" />
+    <title>Book recommender system</title>
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/css/bootstrap.min.css">
+    <style>
+        /* CSS to style the navigation links */
+        .navbar ul {
+            list-style-type: none;
+            margin: 0;
+            padding: 0;
+            overflow: hidden;
+        }
+        
+        .navbar li {
+            float: left;
+        }
+        
+        .navbar li a {
+            display: block;
+            color: white;
+            text-align: center;
+            padding: 14px 16px;
+            text-decoration: none;
+        }
+        
+        .navbar li a:hover {
+            background-color: #ddd;
+            color: black;
+        }
+        
+        /* CSS to make text white */
+        .text-white {
+            color: white;
+        }
+        
+        /* Custom CSS to decrease image size */
+        .small-image {
+            width: 100px; /* Adjust the width as needed */
+            height: auto; /* Maintain aspect ratio */
+        }
+    </style>
+</head>
+<body style="background-color:#eab3b3">
+    <nav class="navbar" style="background-color:#a9a417">
+        <p class="navbar-brand" style="font-weight: bold;">Books recommender</p>
+        <ul>
+            <li><a href="/">Home</a></li>
+            <li><a href="/Recommender">Recommender</a></li>
+            <li><a class="text-white">Contact</a></li>
+        </ul>
+    </nav>
+    <div class="container">
+        <div class="row">
+            <div class="col-md-12">
+                <div class="page-header">
+                    <h1 class="text-white">Top 50 Books</h1>
+                </div>
+            {% for i in range(book_name|length) %}
+                <div class="col-md-3" style="margin-top:50px">
+                    <div class="card">
+                        <div class="card-body">
+                        <!-- Apply small-image class to decrease image size -->
+                            <img class="card-img-top small-image" src="{{image_url[i]}}">
+                            <h3>{{book_name[i]}}</h3>
+                            <p>{{book_author[i]}}</p>
+                            <p>Rating-{{book_rating[i]}}</p>
+                            <p>Release Year-{{book_year[i]}}</p>
+                        </div>
+                    </div>
+                </div>
+            {% endfor %}
+            </div>
+        </div>
+    </div>
+</body>
+</html>
+
